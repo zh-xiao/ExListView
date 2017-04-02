@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
         loadData();
-        mCommonAdapter.notifyDataSetChanged();
     }
 
     private void initView() {
@@ -46,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = size; i < size + 20; i++) {
             mList.add(i);
         }
+        mCommonAdapter.notifyDataSetChanged();
     }
 
 }
