@@ -32,19 +32,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void loadMore() {
                 loadData();
-                mExListView.setLoadCompleted(mList.size() >= 100 ? true : false);
             }
         });
     }
 
     private void loadData() {
         int size = mList.size();
-        if (mList.size() >= 100) {
-            return;
+        if (size < 100) {
+            for (int i = size; i < size + 20; i++) {
+                mList.add(i);
+            }
         }
-        for (int i = size; i < size + 20; i++) {
-            mList.add(i);
-        }
+        mExListView.setLoadCompleted(size >= 100 ? true : false);
         mCommonAdapter.notifyDataSetChanged();
     }
 
